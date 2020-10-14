@@ -20,7 +20,7 @@ public class EnterBasic implements Task {
     this.newUser = newUser;
   }
 
-  public static EnterBasic dataUser(User newUser) {
+  public static EnterBasic information(User newUser) {
     return Tasks.instrumented(EnterBasic.class, newUser);
   }
 

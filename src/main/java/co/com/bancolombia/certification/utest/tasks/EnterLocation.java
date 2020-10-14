@@ -23,7 +23,7 @@ public class EnterLocation implements Task {
     this.data = data;
   }
 
-  public static EnterLocation data(Map<String, String> data) {
+  public static EnterLocation information(Map<String, String> data) {
     return Tasks.instrumented(EnterLocation.class, data);
   }
 
@@ -32,9 +32,11 @@ public class EnterLocation implements Task {
   public <T extends Actor> void performAs(T actor) {
 
     actor.attemptsTo(
+        WaitUntil.the(LocationDataElements.CITY, isEnabled()),
         Enter.theValue(data.get(Constants.CITY)).into(LocationDataElements.CITY)
     );
 
+    LocationDataElements.CITY.resolveFor(actor).sendKeys(Keys.DOWN);
     LocationDataElements.CITY.resolveFor(actor).sendKeys(Keys.ENTER);
 
     actor.attemptsTo(

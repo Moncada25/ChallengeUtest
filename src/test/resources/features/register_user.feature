@@ -20,7 +20,9 @@ Feature: Register a user
       | mobileDevice | <mobileDevice> |
       | model        | <model>        |
       | os           | <os>           |
+    And he enters the password <password>
+    Then should see that the user was registered
 
     Examples:
-      | firtName | lastName | email                          | dateOfBirth       | language | city     | postalCode | country  | computer | version | mobileDevice | model         | os         |
-      | Santiago | Moncada  | santiago.moncada.dev@gmail.com | September/25/1997 | Spanish  | Medellin | 05001      | Colombia | Windows  | 10      | Xiaomi       | Redmi K20 Pro | Android 10 |
+      | firtName | lastName | email                          | dateOfBirth       | language | city     | postalCode | country  | computer | version | mobileDevice | model         | os         | password             |
+      | Santiago | Moncada  | santiago.moncada.dev@gmail.com | September/25/1997 | Spanish  | Medellin | 05001      | Colombia | Windows  | 10      | Xiaomi       | Redmi K20 Pro | Android 10 | $SecurePassword159** |
